@@ -1,5 +1,3 @@
-
-import com.packetloop.realtime.util.misc.Conversions
 import java.io.{FileInputStream, File}
 import java.util.Properties
 import kafka.producer.{KeyedMessage, ProducerConfig, Producer}
