@@ -37,8 +37,6 @@
     <orderEntry type="library" name="SBT: org.typelevel:scodec-bits_2.10:1.0.0" level="project" />
     <orderEntry type="library" name="SBT: org.typelevel:scodec-core_2.10:1.0.0" level="project" />
     <orderEntry type="library" name="SBT: org.typelevel:scodec-stream_2.10:1.0.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="SBT: ch.qos.logback:logback-classic:1.0.13" level="project" />
-    <orderEntry type="library" name="SBT: ch.qos.logback:logback-core:1.0.13" level="project" />
     <orderEntry type="library" name="SBT: com.101tec:zkclient:0.3" level="project" />
     <orderEntry type="library" name="SBT: com.yammer.metrics:metrics-annotation:2.2.0" level="project" />
     <orderEntry type="library" name="SBT: com.yammer.metrics:metrics-core:2.2.0" level="project" />
@@ -47,12 +45,11 @@
     <orderEntry type="library" name="SBT: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="SBT: log4j:log4j:1.2.15" level="project" />
     <orderEntry type="library" name="SBT: net.sf.jopt-simple:jopt-simple:3.2" level="project" />
-    <orderEntry type="library" name="SBT: org.apache.kafka:kafka_2.10:0.8.0" level="project" />
     <orderEntry type="library" name="SBT: org.apache.zookeeper:zookeeper:3.3.4" level="project" />
-    <orderEntry type="library" name="SBT: org.scala-lang:scala-compiler:2.10.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.10:2.0" level="project" />
-    <orderEntry type="library" name="SBT: org.slf4j:slf4j-api:1.7.5" level="project" />
-    <orderEntry type="library" name="SBT: org.xerial.snappy:snappy-java:1.0.4.1" level="project" />
+    <orderEntry type="library" name="SBT: jline:jline:0.9.94" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.kafka:kafka_2.10:0.8.1" level="project" />
+    <orderEntry type="library" name="SBT: org.slf4j:slf4j-api:1.7.2" level="project" />
+    <orderEntry type="library" name="SBT: org.xerial.snappy:snappy-java:1.0.5" level="project" />
   </component>
 </module>
 

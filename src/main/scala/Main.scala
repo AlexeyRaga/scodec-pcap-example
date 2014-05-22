@@ -12,7 +12,7 @@ object Main extends App {
   val topicName = "exp-packets"
 
   val props = new Properties()
-  props.put("metadata.broker.list", "192.168.33.30")
+  props.put("metadata.broker.list", "192.168.33.30:9092")
 
   val producer = new Producer[String, Array[Byte]](new ProducerConfig(props))
   def sendBin(bin: Vector[PcapCodec.PcapRecord]) = {
@@ -30,7 +30,7 @@ object Main extends App {
   def channel = new FileInputStream(new File("/Users/alexey/Work/Captures/smh-capture.pcap")).getChannel
 
   val r = pcapRecords.decodeMmap(channel)
-    .chunkBy2((a, b) => a.header.timestamp == b.header.timestamp)
+    .chunkBy2((a, b) => a.header.timestamp != b.header.timestamp)
     .runFoldMap(x => { sendBin(x); 1 })
     .run
 }
