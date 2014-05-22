@@ -1,0 +1,13 @@
+tmp
+target
+.idea/workspace.xml
+.idea/dictionaries
+src/main/resources/pcap
+src/main/resources/pl_version.txt
+*.swp
+*.swo
+.idea/libraries/
+realtime.iml
+src/main/resources/build_id
+.DS_Store
+fixtures/snort/dynamic_rules/rules/dynamic.rules
