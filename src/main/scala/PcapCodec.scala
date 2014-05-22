@@ -2,15 +2,7 @@ import scala.collection.immutable.IndexedSeq
 import scala.concurrent.duration._
 import scodec.bits._
 import scodec._
-import scodec.stream._
-import scodec.stream.decode.DecodingError
 import shapeless.Iso
-
-import scalaz.std.AllInstances._
-import scalaz.std.indexedSeq._
-import scalaz.syntax.id._
-import scalaz.stream.Process
-import scalaz.concurrent.Task
 
 object PcapCodec {
   import scodec.codecs._
