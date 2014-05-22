@@ -48,6 +48,7 @@ object PcapCodec {
 
   case class PcapRecordHeader(timestampSeconds: Long, timestampMicros: Long, includedLength: Long, originalLength: Long) {
     def timestamp: Double = timestampSeconds + (timestampMicros / (1.second.toMicros.toDouble))
+    def toBitVector: BitVector = BitVector(timestampSeconds, timestampMicros, includedLength, originalLength)
   }
   implicit val pcapRecordHeaderIso = Iso.hlist(PcapRecordHeader.apply _, PcapRecordHeader.unapply _)
 
@@ -58,7 +59,9 @@ object PcapCodec {
       ("orig_len"         | guint32                  )
   }.as[PcapRecordHeader]
 
-  case class PcapRecord(header: PcapRecordHeader, data: BitVector)
+  case class PcapRecord(header: PcapRecordHeader, data: BitVector) {
+    def toBitVector: BitVector = header.toBitVector ++ data
+  }
   implicit val pcapRecordIso = Iso.hlist(PcapRecord.apply _, PcapRecord.unapply _)
 
   implicit def pcapRecord(implicit ordering: ByteOrdering) = {

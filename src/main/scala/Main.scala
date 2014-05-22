@@ -2,6 +2,7 @@ import java.io.{FileInputStream, File}
 import java.util.Properties
 import kafka.producer.{KeyedMessage, ProducerConfig, Producer}
 import scalaz.concurrent.Task
+import scodec.bits.BitVector
 import scodec.stream._
 import scalaz.stream._
 
@@ -17,8 +18,8 @@ object Main extends App {
   val producer = new Producer[String, Array[Byte]](new ProducerConfig(props))
 
   def kafkaOut: Sink[Task, Bin] = io.channel((bin: Bin) => Task.delay {
-    val payload = LameSerializer.serialise(bin)
-    val message = new KeyedMessage[String, Array[Byte]](topicName, payload)
+    val payload = bin.foldLeft(BitVector.empty)(_ ++ _.toBitVector)
+    val message = new KeyedMessage[String, Array[Byte]](topicName, payload.toByteArray)
     producer.send(message)
   })
 
@@ -33,3 +34,4 @@ object Main extends App {
     .to(kafkaOut)
     .run.run
 }
+
